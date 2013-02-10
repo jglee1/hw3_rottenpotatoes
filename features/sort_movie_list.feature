@@ -22,10 +22,18 @@ Background: movies have been added to database
   And I am on the RottenPotatoes home page
 
 Scenario: sort movies alphabetically
-  When I follow "Movie Title"
+  Given I am on the RottenPotatoes home page
+  And I check the following ratings: G,PG,PG-13,R,NC-17
+  When I click on 'submit'
+  And I follow "title_header"
+  Then I should see "Amelie" before "Chocolat"
   # your steps here
 
 Scenario: sort movies in increasing order of release date
-  When I follow "Release Date"
+  Given I am on the RottenPotatoes home page
+  And I check the following ratings: G,PG,PG-13,R,NC-17
+  When I click on 'submit'
+  And I follow "release_date_header"
+  Then I should see "Chocolat" before "Amelie"
   # your steps here
 
